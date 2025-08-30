@@ -8,8 +8,14 @@ GitHub re-usable actions and workflows for Security, Package Scanning, etc.
 
 ## GitHub
 
+### Actions
+
+| action                                                                         | test                                                                                                                                                                                                                                                           |
+| ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`codeql`\_`analyze`](./actions/codeql_analyze/.github/actions/codeql_analyze) | [![Test actions/codeql_analyze](https://github.com/percebus/github-actions-compliance/actions/workflows/test_actions__codeql_analyze.yml/badge.svg)](https://github.com/percebus/github-actions-compliance/actions/workflows/test_actions__codeql_analyze.yml) |
+
 ### Workflows
 
-| workflow                                                       | test                                                                                                                                                                                                                       |
-| -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [dependency-review](./.github/workflows/dependency-review.yml) | [![Pull Request](https://github.com/percebus/github-actions-common/actions/workflows/pull_request.yml/badge.svg?event=pull_request)](https://github.com/percebus/github-actions-common/actions/workflows/pull_request.yml) |
+| workflow                                                         | test                                                                                                                                                                                                                       |
+| ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`dependency-review`](./.github/workflows/dependency-review.yml) | [![Pull Request](https://github.com/percebus/github-actions-common/actions/workflows/pull_request.yml/badge.svg?event=pull_request)](https://github.com/percebus/github-actions-common/actions/workflows/pull_request.yml) |

@@ -26,6 +26,7 @@ jobs:
       matrix:
         language:
           - actions
+          - javascript
 
     name: "CodeQL: ${{ matrix.language }}"
     steps:
@@ -35,5 +36,4 @@ jobs:
 
       - uses: ./.github/actions/codeql_analyze
         with:
-          ssh-private-key: ${{ secrets.SSH_KEY_PRIVATE }}
           language: ${{ matrix.language }}
