@@ -1,0 +1,30 @@
+name: codeql analyze
+on:
+  workflow_call: # SRC: https://docs.github.com/en/actions/using-workflows/reusing-workflows
+    inputs:
+      ssh-private-key:
+        type: string
+        description: SSH private key
+        required: false
+
+      language:
+        type: string
+        description: The programming language to analyze
+        required: true
+
+jobs:
+  codeql_analyze:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    steps:
+      - uses: percebus/github-actions-common/.github/actions/checkout@main
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY_PRIVATE }}
+
+      - uses: percebus/github-actions-compliance/.github/actions/codeql_analyze@main
+        with:
+          language: ${{ inputs.language }}
