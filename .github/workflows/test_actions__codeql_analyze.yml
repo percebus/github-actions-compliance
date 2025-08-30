@@ -19,9 +19,6 @@ jobs:
     name: "CodeQL: javascript"
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
-        with:
-          ssh-private-key: ${{ secrets.SSH_KEY_PRIVATE }}
-
       - uses: ./.github/actions/codeql_analyze
         with:
           language: javascript

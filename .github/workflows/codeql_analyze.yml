@@ -1,4 +1,5 @@
 name: codeql analyze
+
 on:
   workflow_call: # SRC: https://docs.github.com/en/actions/using-workflows/reusing-workflows
     inputs:
@@ -12,14 +13,15 @@ on:
         description: The programming language to analyze
         required: true
 
+# NOTE: This workflow requires the following permissions
+# permissions:
+#   actions: read
+#   contents: read
+#   security-events: write
+
 jobs:
   codeql_analyze:
     runs-on: ubuntu-latest
-    permissions:
-      actions: read
-      contents: read
-      security-events: write
-
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
