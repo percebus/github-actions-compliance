@@ -10,9 +10,9 @@ GitHub re-usable actions and workflows for Security, Package Scanning, etc.
 
 ### Actions
 
-| action                                                                         | test                                                                                                                                                                                                                                                           |
-| ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`codeql`\_`analyze`](./actions/codeql_analyze/.github/actions/codeql_analyze) | [![Test actions/codeql_analyze](https://github.com/percebus/github-actions-compliance/actions/workflows/test_actions__codeql_analyze.yml/badge.svg)](https://github.com/percebus/github-actions-compliance/actions/workflows/test_actions__codeql_analyze.yml) |
+| action                                                  | test                                                                                                                                                                                                                                                           |
+| ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`codeql`\_`analyze`](./.github/actions/codeql_analyze) | [![Test actions/codeql_analyze](https://github.com/percebus/github-actions-compliance/actions/workflows/test_actions__codeql_analyze.yml/badge.svg)](https://github.com/percebus/github-actions-compliance/actions/workflows/test_actions__codeql_analyze.yml) |
 
 ### Workflows
 
