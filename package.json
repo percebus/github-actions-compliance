@@ -1,0 +1,35 @@
+{
+  "name": "github-actions-compliance",
+  "version": "1.0.0",
+  "description": "GitHub re-usable actions and workflows for Security, Package Inspection, etc.",
+  "keywords": [
+    "GitHub",
+    "actions",
+    "workflows",
+    "compliance",
+    "security"
+  ],
+  "homepage": "https://github.com/percebus/github-actions-compliance#readme",
+  "bugs": {
+    "url": "https://github.com/percebus/github-actions-compliance/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/percebus/github-actions-compliance.git"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "author": "JCystems",
+  "scripts": {
+    "_prettier": "prettier .",
+    "prettier:check": "npm run _prettier -- --check",
+    "prettier:write": "npm run _prettier -- --write",
+    "lint": "npm run prettier:check",
+    "style": "npm run prettier:write",
+    "poststyle": "npm run prettier:check",
+    "pretest": "npm run lint",
+    "test": "exit 0"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  }
+}
