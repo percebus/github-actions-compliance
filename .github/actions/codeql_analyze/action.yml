@@ -9,10 +9,23 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: setup CodeQL
+    # Initializes the CodeQL analysis.
+    # It downloads the CodeQL CLI and prepares the CodeQL database.
+    - name: "codeql: init"
       uses: github/codeql-action/init@v3
       with:
         languages: ${{ inputs.language }}
 
-    - name: CodeQL
+    # TODO? or XXX?
+    # # Autobuilds the code for compiled languages (e.g., Java, C#, C++).
+    # # For interpreted languages, this step might not be necessary or can be replaced with custom build commands.
+    # - name: "codeql: autobuild"
+    #   if: ${{ in json('["cpp", "csharp", "java"]', inputs.language) }}
+    #   uses: github/codeql-action/autobuild@v3
+
+    # Performs the CodeQL analysis using the defined queries.
+    # It analyzes the generated CodeQL database and creates SARIF results.
+    - name: "codeql: analyze"
       uses: github/codeql-action/analyze@v3
+      with:
+        category: "/language:${{ inputs.language }}"

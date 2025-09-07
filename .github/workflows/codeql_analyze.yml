@@ -25,6 +25,7 @@ jobs:
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
+          # FIXME Does NOT work
           ssh-private-key: ${{ secrets.SSH_KEY_PRIVATE }}
 
       - uses: percebus/github-actions-compliance/.github/actions/codeql_analyze@main

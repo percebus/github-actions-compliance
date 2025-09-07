@@ -15,4 +15,4 @@ permissions:
 
 jobs:
   audit:
-    uses: ./.github/workflows/dependency-review.yml
+    uses: percebus/github-actions-npm/.github/workflows/dependency-review.yml
