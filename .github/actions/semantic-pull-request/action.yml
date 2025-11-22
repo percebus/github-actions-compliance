@@ -3,7 +3,7 @@ description: Ensures Pull-Requests follow Conventional-Commit standards.
 
 inputs:
   # From secrets.GITHUB_TOKEN
-  GITHUB_TOKEN:
+  github_token:
     description: GitHub token to authenticate API requests
     required: true
 
