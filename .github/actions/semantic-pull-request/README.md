@@ -8,4 +8,4 @@ A wrapper for `amannn/action-semantic-pull-request` that simplifies the configur
 
 ## References
 
-- [`amannn`](amannn) / [`action-semantic-pull-request`](amannn/action-semantic-pull-request)
+- [`amannn`](https://github.com/amannn) / [`action-semantic-pull-request`](https://github.com/amannn/action-semantic-pull-request)
