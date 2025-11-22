@@ -6,6 +6,9 @@ on:
 # NOTE: Set in final file
 # permissions:
 #   pull-requests: read
+#
+# env:
+#   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   semantic-pull-request:
@@ -15,5 +18,3 @@ jobs:
       pull-requests: read
     steps:
       - uses: percebus/github-actions-compliance/.github/actions/semantic-pull-request@main
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
