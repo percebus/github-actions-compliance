@@ -2,11 +2,11 @@ name: Semantic Pull-Request
 
 on:
   workflow_call: # SRC: https://docs.github.com/en/actions/using-workflows/reusing-workflows
-    inputs:
-      github_token:
-        type: string
-        description: GitHub token
-        required: true
+    # inputs:
+    #   github_token:
+    #     type: string
+    #     description: GitHub token
+    #     required: true
 
 # NOTE: Set in final file
 # permissions:
@@ -17,7 +17,7 @@ jobs:
     name: Semantic Pull-Request
     runs-on: ubuntu-latest
     env:
-      GITHUB_TOKEN: ${{ inputs.github_token }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: percebus/github-actions-compliance/.github/actions/semantic-pull-request@main
         # with:
