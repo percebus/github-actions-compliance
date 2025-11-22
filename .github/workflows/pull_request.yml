@@ -20,7 +20,7 @@ jobs:
   semantic-pull-request:
     uses: ./.github/workflows/semantic-pull-request.yml
     with:
-      github_token: ${{ variables.GITHUB_TOKEN }}
+      github_token: NOT
 
   audit:
     uses: ./.github/workflows/dependency-review.yml
