@@ -13,9 +13,6 @@ permissions:
   contents: read
   pull-requests: read
 
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 jobs:
   semantic-pull-request:
     uses: ./.github/workflows/semantic-pull-request.yml
