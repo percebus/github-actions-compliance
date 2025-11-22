@@ -6,7 +6,7 @@ on:
       github_token:
         type: string
         description: GitHub token
-        required: true
+        required: false
 
 # NOTE: Set in final file
 # permissions:
@@ -21,5 +21,3 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: percebus/github-actions-compliance/.github/actions/semantic-pull-request@main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
