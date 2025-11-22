@@ -11,6 +11,9 @@ on:
 # NOTE: Set in final file
 # permissions:
 #   pull-requests: read
+#
+# env:
+#   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   semantic-pull-request:
