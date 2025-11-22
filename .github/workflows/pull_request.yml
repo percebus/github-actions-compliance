@@ -15,12 +15,16 @@ permissions:
 
 jobs:
   semantic-pull-request:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: ./.github/actions/semantic-pull-request
-        # - uses: amannn/action-semantic-pull-request@v6
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    uses: ./.github/workflows/semantic-pull-request.yml@main
+    with:
+      github_token: ${{ secrets.GITHUB_TOKEN }}
+
+    # runs-on: ubuntu-latest
+    # steps:
+    #   - uses: percebus/github-actions-compliance/.github/actions/semantic-pull-request@main
+    #     # - uses: amannn/action-semantic-pull-request@v6
+    #     env:
+    #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   audit:
     uses: ./.github/workflows/dependency-review.yml
