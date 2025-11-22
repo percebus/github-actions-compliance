@@ -1,4 +1,4 @@
-name: Conventional-Commit Pull-Request
+name: Semantic Pull-Request
 
 on:
   workflow_call: # SRC: https://docs.github.com/en/actions/using-workflows/reusing-workflows
@@ -9,7 +9,7 @@ on:
 
 jobs:
   semantic-pull-request:
-    name: Conventional-Commit Pull-Request
+    name: Semantic Pull-Request
     runs-on: ubuntu-latest
     permissions:
       pull-requests: read

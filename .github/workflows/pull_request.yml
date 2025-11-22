@@ -10,17 +10,12 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # TODO
-  # semantic-pull-request:
-  #   # uses: percebus/github-actions-npm/.github/workflows/semantic-pull-request.yml@main
-  #   name: Semantic Pull-Request
-  #   runs-on: ubuntu-latest
-  #   permissions:
-  #     pull-requests: read
-  #   steps:
-  #     - uses: ./.github/actions/semantic-pull-request
-  #       with:
-  #         github_token: ${{ secrets.GITHUB_TOKEN }}
+  semantic-pull-request:
+    uses: percebus/github-actions-npm/.github/workflows/semantic-pull-request.yml@main
+    permissions:
+      pull-requests: read
+    with:
+      github_token: ${{ secrets.GITHUB_TOKEN }}
 
   audit:
     uses: percebus/github-actions-npm/.github/workflows/dependency-review.yml@main
