@@ -16,10 +16,10 @@ permissions:
 jobs:
   semantic-pull-request:
     runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: ./.github/actions/semantic-pull-request
+      - uses: percebus/github-actions-compliance/.github/actions/semantic-pull-request@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   audit:
     uses: ./.github/workflows/dependency-review.yml
