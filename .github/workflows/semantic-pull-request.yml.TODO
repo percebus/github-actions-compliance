@@ -16,4 +16,4 @@ jobs:
     steps:
       - uses: percebus/github-actions-compliance/.github/actions/semantic-pull-request@main
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}

@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: ./.github/actions/semantic-pull-request
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
   audit:
     uses: percebus/github-actions-npm/.github/workflows/dependency-review.yml@main
