@@ -1,0 +1,16 @@
+name: Semantic Pull-Request
+description: Ensures Pull-Requests follow Conventional-Commit standards.
+
+inputs:
+  # From secrets.GITHUB_TOKEN
+  GITHUB_TOKEN:
+    description: GitHub token to authenticate API requests
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - uses: amannn/action-semantic-pull-request@v6
+      # TODO? assume its added on env ?
+      env:
+          GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
