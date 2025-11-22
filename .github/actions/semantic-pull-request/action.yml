@@ -1,11 +1,15 @@
 name: Semantic Pull-Request
 description: Ensures Pull-Requests follow Conventional-Commit standards.
 
-# NOTE: Depends on GITHUB_TOKEN being passed in from the workflow using this action.
-# env:
-#   GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
+inputs:
+  # From secrets.GITHUB_TOKEN
+  github_token:
+    description: GitHub token to authenticate API requests
+    required: true
 
 runs:
   using: composite
   steps:
     - uses: amannn/action-semantic-pull-request@v6
+      env:
+        GITHUB_TOKEN: ${{ inputs.github_token }}
