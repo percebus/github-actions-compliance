@@ -16,7 +16,9 @@ jobs:
   semantic-pull-request:
     name: Semantic Pull-Request
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ inputs.github_token }}
     steps:
       - uses: percebus/github-actions-compliance/.github/actions/semantic-pull-request@main
-        with:
-          github_token: ${{ inputs.github_token }}
+        # with:
+        #   github_token: ${{ inputs.github_token }}
