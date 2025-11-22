@@ -12,10 +12,10 @@ concurrency:
 jobs:
   semantic-pull-request:
     uses: percebus/github-actions-npm/.github/workflows/semantic-pull-request.yml@main
-    permissions:
-      pull-requests: read
     with:
       github_token: ${{ secrets.GITHUB_TOKEN }}
+    permissions:
+      pull-requests: read
 
   audit:
     uses: percebus/github-actions-npm/.github/workflows/dependency-review.yml@main
