@@ -13,4 +13,4 @@ runs:
     - uses: amannn/action-semantic-pull-request@v6
       # TODO? assume its added on env ?
       env:
-          GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
