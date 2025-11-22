@@ -1,0 +1,19 @@
+name: Conventional-Commit Pull-Request
+
+on:
+  workflow_call: # SRC: https://docs.github.com/en/actions/using-workflows/reusing-workflows
+
+# NOTE: Set in final file
+# permissions:
+#   pull-requests: read
+
+jobs:
+  semantic-pull-request:
+    name: Conventional-Commit Pull-Request
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    steps:
+      - uses: percebus/github-actions-compliance/.github/actions/semantic-pull-request@main
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}

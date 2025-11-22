@@ -16,9 +16,9 @@ jobs:
       contents: read
       security-events: write
 
-    name: "CodeQL: javascript"
+    name: "CodeQL: actions"
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
       - uses: ./.github/actions/codeql_analyze
         with:
-          language: javascript
+          language: actions

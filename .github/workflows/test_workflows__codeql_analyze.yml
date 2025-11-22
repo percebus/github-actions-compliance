@@ -20,7 +20,7 @@ jobs:
       matrix:
         language:
           - actions
-          - javascript
+          # - javascript # No JavaScript detected
 
     name: "Test language: ${{ matrix.language }}"
     uses: ./.github/workflows/codeql_analyze.yml
