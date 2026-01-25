@@ -22,6 +22,7 @@ on:
 jobs:
   codeql_analyze:
     runs-on: ubuntu-latest
+    name: ${{ inputs.language }}
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
