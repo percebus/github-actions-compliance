@@ -1,24 +1,28 @@
-name: Test actions/codeql_analyze
+name: Test actions/codeql_init_and_analyze
 
 on:
-  push:
   workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
+  pull_request:
+  push:
+    branches:
+      - main
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
   cancel-in-progress: true
 
+permissions:
+  actions: read
+  contents: read
+  security-events: write
+
 jobs:
   default:
     runs-on: ubuntu-latest
-    permissions:
-      actions: read
-      contents: read
-      security-events: write
 
-    name: "CodeQL: actions"
+    name: CodeQL init and analyze
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
-      - uses: ./.github/actions/codeql_analyze
+      - uses: ./.github/actions/codeql_init_and_analyze
         with:
           language: actions
