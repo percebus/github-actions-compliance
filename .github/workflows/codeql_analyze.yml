@@ -35,7 +35,6 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.ssh-private-key }}
 
-      # - uses: percebus/github-actions-compliance/.github/actions/codeql_init_and_analyze@main # TODO
-      - uses: percebus/github-actions-compliance/.github/actions/codeql_analyze@main # XXX
+      - uses: percebus/github-actions-compliance/.github/actions/codeql_init_and_analyze@main
         with:
           language: ${{ inputs.language }}
