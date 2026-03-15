@@ -2,6 +2,12 @@ name: Semantic Pull-Request
 
 on:
   workflow_call: # SRC: https://docs.github.com/en/actions/using-workflows/reusing-workflows
+    secrets:
+      GITHUB_TOKEN:
+        description: github-token
+        required: true
+
+  workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
 
 # NOTE: Set on final calling workflow
 #
