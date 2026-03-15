@@ -1,10 +1,11 @@
-action-semantic-pull-request
 
-SRC: https://github.com/amannn/action-semantic-pull-request/blob/main/LICENSE
+codeql-action
+
+SRC: https://github.com/github/codeql-action/blob/main/LICENSE
 
 MIT License
 
-Copyright (c) 2020 Contributors
+Copyright (c) 2020 GitHub
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
