@@ -8,13 +8,13 @@ concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
   cancel-in-progress: true
 
+permissions:
+  actions: read
+  contents: read
+  security-events: write
+
 jobs:
   test__matrix:
-    permissions:
-      actions: read
-      contents: read
-      security-events: write
-
     strategy:
       fail-fast: false
       matrix:
@@ -22,7 +22,7 @@ jobs:
           - actions
           # - javascript # No JavaScript detected
 
-    name: Test CodeQL analyze
+    name: CodeQL analyze
     uses: ./.github/workflows/codeql_analyze.yml
     with:
       language: ${{ matrix.language }}

@@ -2,11 +2,12 @@ name: dependency-review
 
 on:
   workflow_call: # SRC: https://docs.github.com/en/actions/using-workflows/reusing-workflows
-    inputs:
-      ssh-private-key:
-        type: string
-        description: SSH private key
+    secrets:
+      SSH_PRIVATE_KEY:
+        description: ssh-private-key
         required: false
+
+  workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
 
 # NOTE: Set in final file
 # permissions:

@@ -8,15 +8,16 @@ concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
   cancel-in-progress: true
 
+permissions:
+  actions: read
+  contents: read
+  security-events: write
+
 jobs:
   default:
     runs-on: ubuntu-latest
-    permissions:
-      actions: read
-      contents: read
-      security-events: write
 
-    name: "CodeQL: actions"
+    name: CodeQL analyze
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
       - uses: ./.github/actions/codeql_analyze
