@@ -2,12 +2,20 @@ name: dependency-review
 
 on:
   workflow_call: # SRC: https://docs.github.com/en/actions/using-workflows/reusing-workflows
-    secrets:
-      SSH_PRIVATE_KEY:
+    inputs:
+      ssh-private-key:
+        type: string
         description: ssh-private-key
         required: false
 
-  workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
+    # TODO?
+    # secrets:
+    #   SSH_PRIVATE_KEY:
+    #     description: ssh-private-key
+    #     required: false
+
+  # FIXME when secrets is applied
+  # workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
 
 # NOTE: Set in final file
 # permissions:
@@ -21,7 +29,8 @@ jobs:
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }} # TODO?
+          ssh-private-key: ${{ inputs.ssh-private-key }} # XXX?
 
       # TODO? move to actions?
       - name: dependency-review
