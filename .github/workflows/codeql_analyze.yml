@@ -21,10 +21,10 @@ on:
         required: true
 
 # NOTE: This workflow requires the following permissions
-# permissions:
-#   actions: read
-#   contents: read
-#   security-events: write
+permissions:
+  actions: read
+  contents: read
+  security-events: write
 
 jobs:
   codeql_analyze:
