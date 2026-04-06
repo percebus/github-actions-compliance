@@ -1,9 +1,17 @@
 name: Semantic Pull-Request
 description: Ensures Pull-Requests follow Conventional-Commit standards.
 
+# SRC: https://github.com/amannn/action-semantic-pull-request?tab=readme-ov-file#installation
+# pull_request_target:
+#   types:
+#     - opened
+#     - reopened
+#     - edited
+#     # - synchronize (if you use required Actions)
+
 # NOTE: Set in final file
 # permissions:
-#   pull-requests: read
+#   pull-requests: read / write
 #
 # env:
 #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

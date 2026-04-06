@@ -8,6 +8,12 @@ on:
         description: ssh-private-key
         required: false
 
+      fail-on-severity:
+        type: string
+        description: fail-on-severity
+        required: false
+        default: high
+
     # TODO?
     # secrets:
     #   SSH_PRIVATE_KEY:
@@ -17,10 +23,10 @@ on:
   # FIXME when secrets is applied
   # workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
 
-# NOTE: Set in final file
-# permissions:
-#   contents: read
-#   pull-requests: read
+# NOTE: Set in final file as well
+permissions:
+  contents: read
+  # pull-requests: read # TODO? or XXX?
 
 jobs:
   dependency-review:
@@ -35,3 +41,5 @@ jobs:
       # TODO? move to actions?
       - name: dependency-review
         uses: actions/dependency-review-action@v4
+        with:
+          fail-on-severity: ${{ inputs.fail-on-severity }}

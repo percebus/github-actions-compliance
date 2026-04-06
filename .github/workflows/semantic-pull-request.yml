@@ -1,6 +1,14 @@
 name: Semantic Pull-Request
 
 on:
+  # SRC: https://github.com/amannn/action-semantic-pull-request?tab=readme-ov-file#installation
+  # pull_request_target:
+  #   types:
+  #     - opened
+  #     - reopened
+  #     - edited
+  #     # - synchronize (if you use required Actions)
+
   workflow_call: # SRC: https://docs.github.com/en/actions/using-workflows/reusing-workflows
     # NOTE: "secret name `GITHUB_TOKEN` can not be used since it would collide with system reserved name"
     # secrets:
@@ -12,12 +20,12 @@ on:
 
 # NOTE: Set on final calling workflow
 #
-# permissions:
-#   pull-requests: read
+permissions:
+  pull-requests: read
 
 jobs:
   semantic-pull-request:
-    name: Semantic Pull-Request
+    name: semantic-pull-request
     runs-on: ubuntu-latest
     steps:
       - uses: percebus/github-actions-compliance/.github/actions/semantic-pull-request@main
