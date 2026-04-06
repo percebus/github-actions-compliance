@@ -21,7 +21,7 @@ on:
 # NOTE: Set on final calling workflow
 #
 permissions:
-  pull-requests: write
+  pull-requests: read
 
 jobs:
   semantic-pull-request:

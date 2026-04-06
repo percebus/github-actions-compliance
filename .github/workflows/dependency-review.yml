@@ -8,6 +8,12 @@ on:
         description: ssh-private-key
         required: false
 
+      fail-on-severity:
+        type: string
+        description: fail-on-severity
+        required: false
+        default: high
+
     # TODO?
     # secrets:
     #   SSH_PRIVATE_KEY:
@@ -36,4 +42,4 @@ jobs:
       - name: dependency-review
         uses: actions/dependency-review-action@v4
         with:
-          fail-on-severity: high
+          fail-on-severity: ${{ inputs.fail-on-severity }}
