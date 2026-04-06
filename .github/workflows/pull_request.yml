@@ -23,7 +23,9 @@ permissions:
 
 jobs:
   semantic-pull-request:
+    name: github-actions-compliance
     uses: ./.github/workflows/semantic-pull-request.yml
 
-  audit:
+  dependency-review:
+    name: github-actions-compliance
     uses: ./.github/workflows/dependency-review.yml
