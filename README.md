@@ -15,6 +15,7 @@ GitHub re-usable actions and workflows for Security, Package Scanning, etc.
 | ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [codeql_init_and_analyze](./.github/actions/codeql_analyze)        | [![Test actions/codeql_init_and_analyze](https://github.com/percebus/github-actions-compliance/actions/workflows/test_actions__codeql_init_and_analyze.yml/badge.svg)](https://github.com/percebus/github-actions-compliance/actions/workflows/test_actions__codeql_init_and_analyze.yml) |
 | [`semantic-pull-request`](./.github/actions/semantic-pull-request) | [![Pull Request](https://github.com/percebus/github-actions-compliance/actions/workflows/pull_request.yml/badge.svg?event=pull_request)](https://github.com/percebus/github-actions-compliance/actions/workflows/pull_request.yml)                                                        |
+| [scan-image](./.github/actions/scan-image)                         | [![Test actions/scan-image](https://github.com/percebus/github-actions-containerization/actions/workflows/test_actions__scan-image.yml/badge.svg)](https://github.com/percebus/github-actions-containerization/actions/workflows/test_actions__scan-image.yml)                            |
 
 ### Workflows
 
@@ -23,3 +24,9 @@ GitHub re-usable actions and workflows for Security, Package Scanning, etc.
 | [codeql_analyze](./.github/workflows/codeql_analyze.yml)                 | [![Test workflows/codeql_analyze](https://github.com/percebus/github-actions-compliance/actions/workflows/test_workflows__codeql_analyze.yml/badge.svg)](https://github.com/percebus/github-actions-compliance/actions/workflows/test_workflows__codeql_analyze.yml) |
 | [`dependency-review`](./.github/workflows/dependency-review.yml)         | [![Pull Request](https://github.com/percebus/github-actions-common/actions/workflows/pull_request.yml/badge.svg?event=pull_request)](https://github.com/percebus/github-actions-common/actions/workflows/pull_request.yml)                                           |
 | [`semantic-pull-request`](./.github/workflows/semantic-pull-request.yml) | [![Pull Request](https://github.com/percebus/github-actions-compliance/actions/workflows/pull_request.yml/badge.svg?event=pull_request)](https://github.com/percebus/github-actions-compliance/actions/workflows/pull_request.yml)                                   |
+
+## Resources
+
+### Medium
+
+- [Container Security: A Complete Overview of GitHub Actions Integrated Image Scanning Tools](https://medium.com/@anshumaansingh10jan/container-security-a-complete-overview-of-github-actions-integrated-image-scanning-tools-832e6406ec23)
