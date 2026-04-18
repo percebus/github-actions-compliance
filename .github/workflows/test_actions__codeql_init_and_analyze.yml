@@ -19,7 +19,7 @@ permissions:
 jobs:
   default:
     runs-on: ubuntu-latest
-    name: CodeQL init & analyze
+    name: "CodeQL init & analyze: actions"
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
       - uses: ./.github/actions/codeql_init_and_analyze
