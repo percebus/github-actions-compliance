@@ -15,6 +15,18 @@ on:
         # default: "./.github/codeql/codeql-config.yml" # TODO
         default: "" # XXX when all jobs have been migrated
 
+      download-artifact_name:
+        type: string
+        description: The name of the artifact to download
+        required: false
+        default: ""
+
+      download-artifact_path:
+        type: string
+        description: The path of the artifact to download
+        required: false
+        default: "dist"
+
     secrets:
       SSH_PRIVATE_KEY:
         description: SSH private key
@@ -33,6 +45,18 @@ on:
         required: false
         default: "./.github/codeql/codeql-config.yml"
 
+      download-artifact_name:
+        type: string
+        description: The name of the artifact to download
+        required: false
+        default: ""
+
+      download-artifact_path:
+        type: string
+        description: The path of the artifact to download
+        required: false
+        default: "dist"
+
 # NOTE: This workflow requires the following permissions
 permissions:
   actions: read
@@ -47,6 +71,13 @@ jobs:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: ${{ inputs.download-artifact_name }}.zip
+        if: ${{ inputs.download-artifact_name }}
+        uses: percebus/github-actions-common/.github/actions/artifact-download@main
+        with:
+          name: ${{ inputs.download-artifact_name }}
+          path: ${{ inputs.download-artifact_path }}
 
       - uses: percebus/github-actions-compliance/.github/actions/codeql_init_and_analyze@main
         with:
