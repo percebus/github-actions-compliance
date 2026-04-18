@@ -50,16 +50,18 @@ jobs:
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
 
-      - run: mv assets/languages/javascript/ dist
+      - name: dist
+        run: mv assets/languages/javascript/ dist
 
       - uses: percebus/github-actions-common/.github/actions/artifact-upload@main
         with:
           name: dist_js
           path: dist
 
-  language_javascript:
+  language:
     needs: language_javascript__prepare
     uses: ./.github/workflows/codeql_analyze.yml
+    name: CodeQL analyze
     with:
       language: javascript
       config-file: ./.github/codeql/codeql-config.yml

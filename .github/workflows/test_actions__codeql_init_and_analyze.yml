@@ -19,7 +19,7 @@ permissions:
 jobs:
   default:
     runs-on: ubuntu-latest
-    name: default
+    name: CodeQL init & analyze
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
       - uses: ./.github/actions/codeql_init_and_analyze
@@ -51,3 +51,20 @@ jobs:
         with:
           language: actions
           config-file: assets/codeql/config/${{ matrix.config-file }}
+
+  matrix__language:
+    needs: default
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        language:
+          - javascript
+
+    name: CodeQL init & analyze
+    steps:
+      - uses: percebus/github-actions-common/.github/actions/checkout@main
+      - uses: ./.github/actions/codeql_init_and_analyze
+        with:
+          language: ${{ matrix.language }}
+          # config-file: ./.github/codeql/codeql-config.yml # default
