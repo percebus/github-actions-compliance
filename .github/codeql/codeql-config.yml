@@ -1,0 +1,4 @@
+name: Node
+
+paths-ignore:
+  - node_modules
