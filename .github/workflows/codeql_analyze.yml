@@ -8,16 +8,17 @@ on:
         description: The programming language to analyze
         required: true
 
+      config-file:
+        type: string
+        description: The path to the CodeQL configuration file
+        required: false
+        # default: "./.github/codeql/codeql-config.yml" # TODO
+        default: "" # XXX when all jobs have been migrated
+
     secrets:
       ssh-private-key:
         description: SSH private key
         required: false
-
-    config-file:
-      description: The path to the CodeQL configuration file
-      required: false
-      # default: "./.github/codeql/codeql-config.yml" # TODO
-      default: "" # XXX when all jobs have been migrated
 
   workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
     inputs:
@@ -50,3 +51,4 @@ jobs:
       - uses: percebus/github-actions-compliance/.github/actions/codeql_init_and_analyze@main
         with:
           language: ${{ inputs.language }}
+          config-file: ${{ inputs.config-file }}
