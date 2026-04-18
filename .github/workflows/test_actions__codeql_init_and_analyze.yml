@@ -32,19 +32,22 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        config-file:
-          # - .github/codeql/codeql-config.yml
-          - node.yml
-          - hello-world-javascript-action.yml
-          #
+        include:
+          - config-file: node.yml
+            continue-on-error: false
+
+          - config-file: hello-world-javascript-action.yml
+            continue-on-error: false
+
           # Fails: "[ERROR] Spawned process exited abnormally"
-          - ignore-everything.yml
+          - config-file: ignore-everything.yml
+            continue-on-error: true
 
     name: "config-file: ${{ matrix.config-file }}"
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
       - uses: ./.github/actions/codeql_init_and_analyze
-        continue-on-error: true
+        continue-on-error: ${{ matrix.continue-on-error }}
         with:
           language: actions
           config-file: assets/codeql/config/${{ matrix.config-file }}
