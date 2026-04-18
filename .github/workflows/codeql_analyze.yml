@@ -16,7 +16,7 @@ on:
         default: "" # XXX when all jobs have been migrated
 
     secrets:
-      ssh-private-key:
+      SSH_PRIVATE_KEY:
         description: SSH private key
         required: false
 
@@ -46,7 +46,7 @@ jobs:
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
-          ssh-private-key: ${{ secrets.ssh-private-key }}
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - uses: percebus/github-actions-compliance/.github/actions/codeql_init_and_analyze@main
         with:
