@@ -26,3 +26,20 @@ jobs:
       - uses: ./.github/actions/codeql_init_and_analyze
         with:
           language: actions
+
+  matrix__config-file:
+    runs-on: ubuntu-latest
+    needs: default
+    strategy:
+      matrix:
+        config-file:
+          # - .github/codeql/codeql-config.yml
+          - assets/codeql/config/ignore-everything.yml
+          - assets/codeql/config/ignore-node.yml
+
+    steps:
+      - uses: percebus/github-actions-common/.github/actions/checkout@main
+      - uses: ./.github/actions/codeql_init_and_analyze
+        with:
+          language: actions
+          config-file: ${{ matrix.config-file }}

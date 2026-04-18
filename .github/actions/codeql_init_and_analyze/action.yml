@@ -6,6 +6,12 @@ inputs:
     description: The programming language to analyze
     required: true
 
+  config-file:
+    description: The path to the CodeQL configuration file
+    required: false
+    default: .github/codeql/codeql-config.yml
+
+
 runs:
   using: composite
   steps:
@@ -15,6 +21,7 @@ runs:
       uses: github/codeql-action/init@v4
       with:
         languages: ${{ inputs.language }}
+        config-file: ${{ inputs.config-file }}
 
     # TODO? or XXX?
     # # Autobuilds the code for compiled languages (e.g., Java, C#, C++).

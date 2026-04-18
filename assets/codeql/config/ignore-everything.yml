@@ -1,0 +1,5 @@
+name: Ignore everything
+
+paths-ignore:
+  - "**"
+  - "**/*"
