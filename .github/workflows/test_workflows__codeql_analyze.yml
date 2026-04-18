@@ -17,15 +17,28 @@ permissions:
   security-events: write
 
 jobs:
-  test__matrix:
-    strategy:
-      fail-fast: false
-      matrix:
-        language:
-          - actions
-          # - javascript # No JavaScript detected
-
+  default:
     name: CodeQL analyze
     uses: ./.github/workflows/codeql_analyze.yml
     with:
-      language: ${{ matrix.language }}
+      language: actions
+
+  #
+  matrix__config-file:
+    needs: default
+    strategy:
+      fail-fast: false
+      matrix:
+        config-file:
+          - ./.github/codeql/codeql-config.yml
+
+          # Tested in "Test actions/codeql_init_and_analyze"
+          # - assets/codeql/config/ignore-everything.yml
+          # - assets/codeql/config/node.yml
+          # - assets/codeql/config/hello-world-javascript-action.yml
+
+    name: "config-file: ${{ matrix.config-file }}"
+    uses: ./.github/workflows/codeql_analyze.yml
+    with:
+      language: actions
+      config-file: ${{ matrix.config-file }}

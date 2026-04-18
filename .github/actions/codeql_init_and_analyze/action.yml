@@ -6,15 +6,22 @@ inputs:
     description: The programming language to analyze
     required: true
 
+  config-file:
+    description: The path to the CodeQL configuration file
+    required: false
+    default: .github/codeql/codeql-config.yml
+
 runs:
   using: composite
   steps:
     # Initializes the CodeQL analysis.
     # It downloads the CodeQL CLI and prepares the CodeQL database.
     - name: "codeql: init"
+      # SRC: https://github.com/github/codeql-action/blob/main/init/action.yml
       uses: github/codeql-action/init@v4
       with:
         languages: ${{ inputs.language }}
+        config-file: ${{ inputs.config-file }}
 
     # TODO? or XXX?
     # # Autobuilds the code for compiled languages (e.g., Java, C#, C++).
@@ -26,6 +33,7 @@ runs:
     # Performs the CodeQL analysis using the defined queries.
     # It analyzes the generated CodeQL database and creates SARIF results.
     - name: "codeql: analyze"
+      # SRC: https://github.com/github/codeql-action/tree/main/analyze
       uses: github/codeql-action/analyze@v4
       with:
         category: "/language:${{ inputs.language }}"

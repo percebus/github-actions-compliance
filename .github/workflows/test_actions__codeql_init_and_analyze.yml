@@ -19,10 +19,35 @@ permissions:
 jobs:
   default:
     runs-on: ubuntu-latest
-
-    name: CodeQL init and analyze
+    name: default
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
       - uses: ./.github/actions/codeql_init_and_analyze
         with:
           language: actions
+
+  matrix__config-file:
+    needs: default
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - config-file: node.yml
+            continue-on-error: false
+
+          - config-file: hello-world-javascript-action.yml
+            continue-on-error: false
+
+          # Fails: "[ERROR] Spawned process exited abnormally"
+          - config-file: ignore-everything.yml
+            continue-on-error: true
+
+    name: "config-file: ${{ matrix.config-file }}"
+    steps:
+      - uses: percebus/github-actions-common/.github/actions/checkout@main
+      - uses: ./.github/actions/codeql_init_and_analyze
+        continue-on-error: ${{ matrix.continue-on-error }}
+        with:
+          language: actions
+          config-file: assets/codeql/config/${{ matrix.config-file }}
