@@ -43,6 +43,7 @@ jobs:
       language: actions
       config-file: ${{ matrix.config-file }}
 
+  #
   language_javascript__prepare:
     needs: default
     runs-on: ubuntu-latest
@@ -58,6 +59,7 @@ jobs:
           name: dist_js
           path: dist
 
+  #
   language:
     needs: language_javascript__prepare
     uses: ./.github/workflows/codeql_analyze.yml
