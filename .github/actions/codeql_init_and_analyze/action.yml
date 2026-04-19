@@ -1,6 +1,12 @@
 name: codeql analyze
 description: Runs codeql-action/analyze
 
+# NOTE: This workflow requires the following permissions
+# permissions:
+#   actions: read
+#   contents: read
+#   security-events: write
+
 inputs:
   language:
     description: A comma-separated list of CodeQL languages to analyze.
