@@ -15,6 +15,12 @@ on:
         # default: "./.github/codeql/codeql-config.yml" # TODO
         default: "" # XXX when all jobs have been migrated
 
+      build-mode:
+        type: string
+        description: The build mode that will be used to analyze the language. This input is only available when analyzing a single CodeQL language per job, for example using a matrix.
+        required: false
+        default: "none"
+
       download-artifact_name:
         type: string
         description: The name of the artifact to download
@@ -45,6 +51,12 @@ on:
         required: false
         default: "./.github/codeql/codeql-config.yml"
 
+      build-mode:
+        type: string
+        description: The build mode that will be used to analyze the language. This input is only available when analyzing a single CodeQL language per job, for example using a matrix.
+        required: false
+        default: "none"
+
       download-artifact_name:
         type: string
         description: The name of the artifact to download
@@ -72,6 +84,7 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_KEY_PRIVATE }}
 
+      # XXX: it should not bring dist or bin from a previous job
       - name: ${{ inputs.download-artifact_name }}.zip
         if: ${{ inputs.download-artifact_name }}
         uses: percebus/github-actions-common/.github/actions/artifact-download@main
@@ -82,4 +95,5 @@ jobs:
       - uses: percebus/github-actions-compliance/.github/actions/codeql_init_and_analyze@main
         with:
           language: ${{ inputs.language }}
+          build-mode: ${{ inputs.build-mode }}
           config-file: ${{ inputs.config-file }}
