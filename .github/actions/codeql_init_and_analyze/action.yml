@@ -3,13 +3,18 @@ description: Runs codeql-action/analyze
 
 inputs:
   language:
-    description: The programming language to analyze
+    description: A comma-separated list of CodeQL languages to analyze.
     required: true
 
   config-file:
-    description: The path to the CodeQL configuration file
+    description: Path of the config file to use
     required: false
     default: .github/codeql/codeql-config.yml
+
+  build-mode:
+    description:  The build mode that will be used to analyze the language. This input is only available when analyzing a single CodeQL language per job, for example using a matrix.
+    required: false
+    default: "none"
 
 runs:
   using: composite

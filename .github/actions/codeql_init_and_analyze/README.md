@@ -1,6 +1,6 @@
-# codeql(-action)\_analyze
+# codeql(-action)_init_and_analyze
 
-[![Test actions/codeql_analyze](https://github.com/percebus/github-actions-compliance/actions/workflows/test_actions__codeql_analyze.yml/badge.svg)](https://github.com/percebus/github-actions-compliance/actions/workflows/test_actions__codeql_analyze.yml)
+[![Test actions/codeql_init_and_analyze](https://github.com/percebus/github-actions-compliance/actions/workflows/test_actions__codeql_init_and_analyze.yml/badge.svg)](https://github.com/percebus/github-actions-compliance/actions/workflows/test_actions__codeql_init_and_analyze.yml)
 
 [`LICENSE`](./LICENSE)
 
