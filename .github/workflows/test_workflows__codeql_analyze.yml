@@ -44,28 +44,16 @@ jobs:
       config-file: ${{ matrix.config-file }}
 
   #
-  language_javascript__prepare:
+  matrix__language:
     needs: default
-    runs-on: ubuntu-latest
-    name: "Prepare language:javascript"
-    steps:
-      - uses: percebus/github-actions-common/.github/actions/checkout@main
+    strategy:
+      fail-fast: false
+      matrix:
+        language:
+          - javascript
 
-      - name: dist
-        run: mv assets/languages/javascript/ dist
-
-      - uses: percebus/github-actions-common/.github/actions/artifact-upload@main
-        with:
-          name: dist_js
-          path: dist
-
-  #
-  language:
-    needs: language_javascript__prepare
     uses: ./.github/workflows/codeql_analyze.yml
     name: CodeQL analyze
     with:
-      language: javascript
+      language: ${{ matrix.language }}
       config-file: ./.github/codeql/codeql-config.yml
-      download-artifact_name: dist_js
-      download-artifact_path: dist
