@@ -20,19 +20,6 @@ on:
         required: false
         default: high
 
-  workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
-    secrets:
-      SSH_KEY_PRIVATE:
-        description: ssh-private-key
-        required: false
-
-    inputs:
-      fail-on-severity:
-        type: string
-        description: fail-on-severity
-        required: false
-        default: high
-
 # NOTE: Set in final file as well
 permissions:
   contents: read
@@ -45,7 +32,7 @@ jobs:
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
-          ssh-private-key: ${{ secrets.SSH_KEY_PRIVATE || secrets.ssh-private-key || inputs.ssh-private-key }}
+          ssh-private-key: ${{ secrets.ssh-private-key || inputs.ssh-private-key }}
 
       # TODO? move to actions?
       # SRC: https://github.com/actions/dependency-review-action/releases/tag/v5.0.0
