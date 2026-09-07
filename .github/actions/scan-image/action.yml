@@ -30,9 +30,9 @@ runs:
   using: composite
 
   steps:
-    # SRC: https://github.com/anchore/scan-action
-    - name: Scan ${{ inputs.image_tag }}
-      uses: anchore/scan-action@v7
+    # SRC: https://github.com/anchore/scan-action/releases/tag/v7.4.2
+    - uses: anchore/scan-action@27805bf3b4e84b4a5c980df22ed233c00390a439
+      name: Scan ${{ inputs.image_tag }}
       id: scan
       with:
         image: ${{ inputs.image_tag }}
@@ -41,9 +41,9 @@ runs:
         only-fixed: ${{ inputs.only-fixed == 'true' }}
         output-format: sarif
 
-    # TODO split into sarif-upload action
-    # SRC: https://github.com/github/codeql-action/tree/main/upload-sarif
-    - name: Upload SARIF
-      uses: github/codeql-action/upload-sarif@v4
+    # TODO? split into sarif-upload action?
+    # SRC: https://github.com/github/codeql-action/releases/tag/v4.37.9
+    - uses: github/codeql-action/upload-sarif@cdf488f595d80d6e07e03d4674febd5ab45fa938
+      name: Upload SARIF
       with:
         sarif_file: ${{ steps.scan.outputs.sarif }}
