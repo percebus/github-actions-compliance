@@ -19,7 +19,7 @@ description: Ensures Pull-Requests follow Conventional-Commit standards.
 runs:
   using: composite
   steps:
-    # SRC: https://github.com/amannn/action-semantic-pull-request
-    - uses: amannn/action-semantic-pull-request@v6
+    # SRC: https://github.com/amannn/action-semantic-pull-request/releases/tag/v6.1.1
+    - uses: amannn/action-semantic-pull-request@48f256284bd46cdaab1048c3721360e808335d50
       # env:
       #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

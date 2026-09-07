@@ -2,7 +2,13 @@ name: dependency-review
 
 on:
   workflow_call: # SRC: https://docs.github.com/en/actions/using-workflows/reusing-workflows
+    secrets:
+      SSH_KEY_PRIVATE:
+        description: ssh-private-key
+        required: false
+
     inputs:
+      # XXX
       ssh-private-key:
         type: string
         description: ssh-private-key
@@ -14,14 +20,18 @@ on:
         required: false
         default: high
 
-    # TODO?
-    # secrets:
-    #   SSH_KEY_PRIVATE:
-    #     description: ssh-private-key
-    #     required: false
+  workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
+    secrets:
+      SSH_KEY_PRIVATE:
+        description: ssh-private-key
+        required: false
 
-  # FIXME when secrets is applied
-  # workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
+    inputs:
+      fail-on-severity:
+        type: string
+        description: fail-on-severity
+        required: false
+        default: high
 
 # NOTE: Set in final file as well
 permissions:
@@ -35,11 +45,11 @@ jobs:
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
-          # ssh-private-key: ${{ secrets.SSH_KEY_PRIVATE }} # TODO?
-          ssh-private-key: ${{ inputs.ssh-private-key }} # XXX?
+          ssh-private-key: ${{ secrets.SSH_KEY_PRIVATE || inputs.ssh-private-key }}
 
       # TODO? move to actions?
-      - name: dependency-review
-        uses: actions/dependency-review-action@v4
+      # SRC: https://github.com/actions/dependency-review-action/releases/tag/v5.0.0
+      - uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294
+        name: dependency-review
         with:
           fail-on-severity: ${{ inputs.fail-on-severity }}
