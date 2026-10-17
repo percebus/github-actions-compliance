@@ -35,8 +35,7 @@ jobs:
           ssh-private-key: ${{ secrets.ssh-private-key || inputs.ssh-private-key }}
 
       # TODO? move to actions?
-      # SRC: https://github.com/actions/dependency-review-action/releases/tag/v5.0.0
-      - uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294
+      - uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
         name: dependency-review
         with:
           fail-on-severity: ${{ inputs.fail-on-severity }}
