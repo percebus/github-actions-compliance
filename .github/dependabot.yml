@@ -5,4 +5,5 @@ updates:
     directory: "/.github/"
     schedule:
       interval: "weekly" # Options: daily, weekly, monthly
+    cooldown:
       default-days: 7
