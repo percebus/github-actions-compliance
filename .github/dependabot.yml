@@ -2,7 +2,7 @@ version: 2
 updates:
   # Configuration for GitHub Actions
   - package-ecosystem: "github-actions"
-    directory: "/"
+    directory: "/.github/"
     schedule:
       interval: "weekly" # Options: daily, weekly, monthly
       default-days: 7
