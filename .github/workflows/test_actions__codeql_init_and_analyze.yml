@@ -22,7 +22,7 @@ jobs:
     name: "CodeQL init & analyze: actions"
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
-      - uses: ./.github/actions/codeql_init_and_analyze
+      - uses: $/.github/actions/codeql_init_and_analyze
         with:
           language: actions
 
@@ -46,7 +46,7 @@ jobs:
     name: "config-file: ${{ matrix.config-file }}"
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
-      - uses: ./.github/actions/codeql_init_and_analyze
+      - uses: $/.github/actions/codeql_init_and_analyze
         continue-on-error: ${{ matrix.continue-on-error }}
         with:
           language: actions
@@ -64,7 +64,7 @@ jobs:
     name: CodeQL init & analyze
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
-      - uses: ./.github/actions/codeql_init_and_analyze
+      - uses: $/.github/actions/codeql_init_and_analyze
         with:
           language: ${{ matrix.language }}
           # config-file: ./.github/codeql/codeql-config.yml # default
