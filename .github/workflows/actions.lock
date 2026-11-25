@@ -20,7 +20,7 @@ workflows:
         - 'percebus/github-actions-common@main'
     '.github/workflows/test_actions__scan-image.yml':
         - 'anchore/scan-action@v7.4.2'
-        - 'github/codeql-action@v4.39.0'
+        - 'github/codeql-action@v4.39.3'
         - 'percebus/github-actions-common@main'
     '.github/workflows/test_workflows__codeql_analyze.yml': []
 dependencies:
@@ -45,11 +45,6 @@ dependencies:
         owner_id: 16208487
         repo_id: 212692077
     'github/codeql-action@6f2ac81f5cd81fe351a197ba0b00d91d03cd2aee':
-        ref: 'v4.39.0'
-        commit: 'sha1-6f2ac81f5cd81fe351a197ba0b00d91d03cd2aee'
-        owner_id: 9919
-        repo_id: 259445878
-    'github/codeql-action@v4.39.0':
         ref: 'v4.39.0'
         commit: 'sha1-6f2ac81f5cd81fe351a197ba0b00d91d03cd2aee'
         owner_id: 9919
