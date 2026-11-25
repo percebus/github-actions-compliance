@@ -16,7 +16,7 @@ workflows:
     '.github/workflows/semantic-pull-request.yml':
         - 'percebus/github-actions-compliance@main'
     '.github/workflows/test_actions__codeql_init_and_analyze.yml':
-        - 'github/codeql-action@v4.39.5'
+        - 'github/codeql-action@v4.39.3'
         - 'percebus/github-actions-common@main'
     '.github/workflows/test_actions__scan-image.yml':
         - 'anchore/scan-action@v7.4.2'
@@ -54,9 +54,9 @@ dependencies:
         commit: 'sha1-6f2ac81f5cd81fe351a197ba0b00d91d03cd2aee'
         owner_id: 9919
         repo_id: 259445878
-    'github/codeql-action@v4.39.5':
-        ref: 'v4.39.5'
-        commit: 'sha1-915412ff23e8b7659517e607487dbeae018f2934'
+    'github/codeql-action@v4.39.3':
+        ref: 'v4.39.3'
+        commit: 'sha1-33d7b85da1a04171e211befe2c739303b9a4c066'
         owner_id: 9919
         repo_id: 259445878
     'percebus/github-actions-common@main':
